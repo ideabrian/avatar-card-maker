@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: "ProfileCard",
+  name: "OutputCard",
   props: {
     name: {
       type: String,

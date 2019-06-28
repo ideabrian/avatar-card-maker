@@ -8,7 +8,7 @@
           <InputCard @submitUser="logItOut" />
         </div>
         <div class="w-full md:w-1/2 p-4">
-          <ProfileCard
+          <OutputCard
             :name="name"
             :email="email"
             :phone="phone"
@@ -23,12 +23,12 @@
 
 <script>
 import InputCard from './components/InputCard'
-import ProfileCard from './components/ProfileCard'
+import OutputCard from './components/OutputCard'
 
 export default {
   name: 'app',
   components: {
-    ProfileCard,
+    OutputCard,
     InputCard
   },
   data() {
