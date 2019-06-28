@@ -45,7 +45,7 @@ export default {
     },
     avatarImg: {
       type: String,
-      default: 'https://www.radiotodaybd.fm/wp-content/uploads/2019/02/img_avatar.png?fbclid=IwAR2LEIMdiKkcJws2jrY7lV3VeatrQf7EhcferhX1NWJ-40W9NUCjbeiiOGY'
+      default: ''
     }
   }
 };
