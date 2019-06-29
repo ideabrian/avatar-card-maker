@@ -1,9 +1,9 @@
 <template>
   <div id="app">
 
-    <section class=" bg-gray-400">
+    <section class="bg-gray-400">
       <!-- Two columns -->
-      <div class="flex flex-col-reverse md:flex-row items-center  h-screen justify-center">
+      <div class="flex flex-col-reverse md:flex-row items-center justify-center">
         <div class="w-full md:w-1/2 p-4">
           <InputCard @submitUser="logItOut" />
         </div>
