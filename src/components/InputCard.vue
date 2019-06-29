@@ -12,7 +12,7 @@
         Email
       </label>
       <input v-model="email" class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="email"  />
-      <p class="text-red-500 text-xs italic">Your best email.</p>
+      <p class="text-xs italic">Your best email.</p>
     </div> 
     <div class="mb-6">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
@@ -34,7 +34,8 @@
       <button @click.prevent="clearUser" class="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
         Clear All
       </button>
-      <button @click="submitUser" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+      <div class="">{{ clear ? " empty " : " filled " }}</div>
+      <button @click="submitUser" :class="[submitButtonActiveClasses]" type="button" :disabled="true">
         Submit
       </button>
     </div>
@@ -49,7 +50,10 @@ function initialState() {
       name: 'Jack Lyons',
       email: 'jack@example.com',
       phone: '(212) 555-1234',
-      avatarImg: 'https://www.w3schools.com/howto/img_avatar.png'
+      avatarImg: 'https://www.w3schools.com/howto/img_avatar.png',
+      clear: false,
+      submitButtonActiveClasses: ['bg-blue-500', 'hover:bg-blue-700', 'text-white', 
+                                 'font-bold', 'py-2', 'px-4', 'rounded', 'focus:outline-none', 'focus:shadow-outline']
     }
 }
 
@@ -58,7 +62,10 @@ function clearState() {
       name: '',
       email: '',
       phone: '',
-      avatarImg: ''
+      avatarImg: '',
+      clear: true,
+      submitButtonActiveClasses: ['bg-blue-300',  'text-white', 
+                                 'font-bold', 'py-2', 'px-4', 'rounded', 'focus:outline-none', 'focus:shadow-outline']
     }
 }
 export default {
@@ -74,6 +81,7 @@ export default {
         phone: this.phone,
         avatarImg: this.avatarImg
       })
+      this.clearUser()
     },
     clearUser() {
       Object.assign(this.$data, clearState());
