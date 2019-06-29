@@ -31,9 +31,9 @@
     </div> 
 
     <div class="flex items-center justify-between">
-      <a class="inline-block align-baseline font-bold text-sm text-red-500 hover:text-red-800" href="#">
+      <button @click.prevent="clearUser" class="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
         Clear All
-      </a>
+      </button>
       <button @click="submitUser" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
         Submit
       </button>
@@ -44,15 +44,28 @@
 </template>
 
 <script>
-export default {
-  data ()  {
+function initialState() {
+    return {
+      name: 'Jack Lyons',
+      email: 'jack@example.com',
+      phone: '(212) 555-1234',
+      avatarImg: 'https://www.w3schools.com/howto/img_avatar.png'
+    }
+}
+
+function clearState() {
     return {
       name: '',
       email: '',
-      phone: null,
+      phone: '',
       avatarImg: ''
     }
+}
+export default {
+  data ()  {
+    return initialState();
   },
+  
   methods: {
     submitUser () {
       this.$emit('submitUser', {
@@ -61,6 +74,9 @@ export default {
         phone: this.phone,
         avatarImg: this.avatarImg
       })
+    },
+    clearUser() {
+      Object.assign(this.$data, clearState());
     }
   }
 };
