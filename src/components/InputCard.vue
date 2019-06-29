@@ -38,7 +38,7 @@
       <button v-if="name.length>0" @click.prevent="clearUser" class="bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
         {{ name.length===0 ? "disabled" : "clear all" }}
       </button>
-      <button v-else @click.prevent="clearUser" class="bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  cursor-not-allowed">
+      <button v-else @click.prevent="clearUser" class="bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  cursor-not-allowed" :disabled="name.length===0">
         {{ name.length===0 ? "disabled" : "clear all" }}
       </button>
       
