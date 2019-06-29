@@ -56,10 +56,6 @@ export default {
     avatarImg: {
       type: String,
       default: ''
-    },
-    gravatarImg: {
-      type: String,
-      default: ''
     }
   }
 };
